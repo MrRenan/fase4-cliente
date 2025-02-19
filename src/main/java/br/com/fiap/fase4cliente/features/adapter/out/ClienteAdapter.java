@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-import static br.com.fiap.fase4cliente.features.domain.exception.ClienteNaoEncontradoException.clienteNaoEncontradoException;
 import static java.util.stream.Collectors.toList;
 
 @Component
@@ -34,7 +33,7 @@ public class ClienteAdapter implements ClientePort {
     @Override
     public Cliente obterClientePorId(String idCliente) {
         var clienteEntity = repository.findById(idCliente)
-                .orElseThrow(ClienteNaoEncontradoException::clienteNaoEncontradoException);
+                .orElseThrow(() -> new ClienteNaoEncontradoException("Cliente "+idCliente+" nao encontrado"));
         return mapper.paraCliente(clienteEntity);
     }
 
@@ -51,7 +50,7 @@ public class ClienteAdapter implements ClientePort {
         if(repository.existsById(idCliente)) {
             ClienteDocument clienteDocument = repository.save(mapper.paraClienteDocument(cliente));
             return mapper.paraCliente(clienteDocument);
-        } else throw clienteNaoEncontradoException();
+        } else throw new ClienteNaoEncontradoException("Cliente "+idCliente+" nao encontrado");
 
     }
 

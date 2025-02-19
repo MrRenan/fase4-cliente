@@ -14,6 +14,9 @@ public record ClienteResponse(
         @Id String id,
         String nome,
         String telefone,
+        String tipoDocumento,
+        String documento,
+        String email,
         LocalDate dataNascimento,
         String genero,
         Endereco endereco
