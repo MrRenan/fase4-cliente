@@ -1,14 +1,12 @@
 package br.com.fiap.fase4cliente.features.domain.entity;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Data
 @Getter
 @Setter
 @RequiredArgsConstructor
+@AllArgsConstructor
 public class Endereco {
 
     private String rua;

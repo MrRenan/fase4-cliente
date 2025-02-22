@@ -1,9 +1,6 @@
 package br.com.fiap.fase4cliente.features.domain.entity;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -11,6 +8,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @RequiredArgsConstructor
+@AllArgsConstructor
 public class Cliente {
 
     private String id;
